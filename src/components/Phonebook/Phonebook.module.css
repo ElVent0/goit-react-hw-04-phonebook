@@ -1,0 +1,25 @@
+.form {
+  background-color: rgb(229, 229, 229);
+  border-radius: 5px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  display: flex;
+}
+
+.input {
+  display: block;
+  border-radius: 5px;
+  width: 90%;
+}
+
+.button {
+  cursor: pointer;
+  height: 20px;
+  width: 120px;
+  margin-top: auto;
+  background-color: #fff;
+  border-radius: 5px;
+  border: none;
+}
