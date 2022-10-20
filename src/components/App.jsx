@@ -17,21 +17,19 @@ export const App = () => {
       } catch (e) {
         console.log(e);
       }
-    } else {
-      localStorage.setItem('contacts', []);
     }
   }, []);
 
-  useEffect(
-    prevState => {
-      if (contacts !== prevState) {
-        localStorage.setItem('contacts', JSON.stringify(contacts));
-      }
-    },
-    [contacts]
-  );
+  // useEffect(
+  //   prevState => {
+  //     if (contacts !== prevState) {
+  //       localStorage.setItem('contacts', JSON.stringify(contacts));
+  //     }
+  //   },
+  //   [contacts]
+  // );
 
-  const onAddContact = (name, phone) => e => {
+  const onAddContact = (name, phone) => {
     const id = nanoid();
     const newContact = {
       name,
@@ -64,12 +62,9 @@ export const App = () => {
       console.log(contacts);
       filteredArray = [...contacts];
     } else if (filter !== '') {
-      contacts.map(item => {
-        if (item.name.toLowerCase().includes(filter.toLowerCase())) {
-          filteredArray.push(item);
-        }
-        return item;
-      });
+      return contacts.filter(item =>
+        item.name.toLowerCase().includes(filter.toLowerCase())
+      );
     }
     return filteredArray;
   };

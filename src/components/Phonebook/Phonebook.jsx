@@ -14,9 +14,9 @@ const Phonebook = ({ onAddContact }) => {
     }
   };
 
-  const onAddContactReset = callback => e => {
+  const onAddContactReset = e => {
     e.preventDefault();
-    callback();
+    onAddContact(name, number);
     setName('');
     setNumber('');
     e.currentTarget.reset();
@@ -24,10 +24,7 @@ const Phonebook = ({ onAddContact }) => {
 
   return (
     <>
-      <form
-        onSubmit={onAddContactReset(onAddContact(name, number))}
-        className={css.form}
-      >
+      <form onSubmit={onAddContactReset} className={css.form}>
         <label>
           Name
           <input
